@@ -138,12 +138,13 @@ class Car {
 		const fuel = distance / this.mpg
 		if (distance <= milesCanDrive) {
 			this.odometer = this.odometer + distance
-			this.tank = this.tank - fuel
+			this.tank = this.tank - distance / this.mpg
+			return this.odometer
 		} else {
-			this.tank = 0
 			this.odometer = this.odometer + milesCanDrive
+			this.tank = 0
+			return this.odometer
 		}
-		return this.odometer
 	}
 
 	/**
@@ -189,8 +190,12 @@ class Car {
  *    // error.message is "number must be a number"
  * })
  */
-function isEvenNumberAsync(number) {
-	// ✨ implement
+async function isEvenNumberAsync(number) {
+	if (typeof number !== 'number' || isNaN(number)) {
+		throw new Error('number nust be a number')
+	}
+
+	return number % 2 === 0 || false
 }
 
 module.exports = {
