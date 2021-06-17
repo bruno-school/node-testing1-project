@@ -148,14 +148,14 @@ describe('[Exercise 7] isEvenNumberAsync', () => {
 		try {
 			await utils.isEvenNumberAsync('string')
 		} catch (error) {
-			expect(error.message).toMatch(/number nust be a number/i)
+			expect(error.message).toMatch(/number must be a number/i)
 		}
 	})
 	test('[22] rejects an error with the message "number must be a number" if passed NaN', async () => {
 		try {
 			await utils.isEvenNumberAsync(NaN)
 		} catch (error) {
-			expect(error.message).toMatch(/number nust be a number/i)
+			expect(error.message).toMatch(/number must be a number/i)
 		}
 	})
 })
